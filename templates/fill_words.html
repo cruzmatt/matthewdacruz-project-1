@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="post" action="/generate_story">
+    {% for word in placeholders %}
+        <label>{{ word.replace('_', ' ').capitalize() }}:</label><br>
+        <input type="text" name="{{ word }}" required><br><br>
+    {% endfor %}
+    <input type="hidden" name="theme" value="{{ theme }}">
+    <button type="submit" class="button selected">Generate Story</button>
+</form>
+{% endblock %}

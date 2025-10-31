@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="font-size: 2.5em; margin-bottom: 10px;">Create Your Own Mad Libs Stories</h1>
+<p style="font-size: 1.2em; color: gray; margin-bottom: 30px;">Choose a theme: </p>
+<form id="themeForm" method="post" action="/select_template">
+    {% for key, story in themes.items() %}
+        <button type="submit" name="theme" value="{{ key }}"
+            class="button {% if loop.first %}selected{% endif %}"
+            onclick="highlightButton(this)">
+            {{ key.replace('_', ' ').capitalize() }}
+        </button>
+    {% endfor %}
+</form>
+
+<script>
+    const buttons = document.querySelectorAll('.button');
+    function highlightButton(clicked) {
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        clicked.classList.add('selected');
+    }
+</script>
+{% endblock %}

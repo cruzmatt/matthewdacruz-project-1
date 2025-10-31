@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "Mad Libs Generator" }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .selected {
+            background-color: #007BFF;
+            color: white;
+        }
+        .theme-sci_fi {
+            background-color: black;
+            color: #0ff;
+            font-family: 'Courier New', monospace;
+        }
+        .theme-romance {
+            background-color: mistyrose;
+            color: maroon;
+        }
+        .theme-adventure {
+            background-color: #3a0000;
+            color: #ff6b6b;
+            letter-spacing: 1px;
+        }
+        .theme-comedy {
+            background-color: lightyellow;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body class="theme-{{ theme if theme else '' }}">
+    {% block content %}{% endblock %}
+</body>
+</html>
